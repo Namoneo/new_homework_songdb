@@ -8,9 +8,4 @@ def show
   @artist = Artist.find(params[:id])
 end
 
-private
-  def artist_params
-    params.require(:artist).permit(:name, :song, :image_url)
-  end
-
 end

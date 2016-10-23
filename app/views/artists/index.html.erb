@@ -1,8 +1,7 @@
-<h1>Hello</h1>
-
+<h1>SongDB</h1>
 <% @artists.each do |artist| %>
-<p><%= link_to artist.name, artist_path(artist.id) %></p>
-<% artist.photos.each do |photo| %>
-  <%= image_tag photo.image %>
-<% end %>
+    <p><%= link_to artist.name, artist_path(artist.id) %></p>
+    <% artist.photos.each do |photo| %>
+    <%= link_to (image_tag photo.image), artist_path(artist.id) %>
+    <% end %>
 <% end %>
