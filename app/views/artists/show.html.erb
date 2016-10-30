@@ -1,5 +1,11 @@
 <h4><%= @artist.name %></h4>
 <% @artist.photos.each do |photo| %>
   <%= image_tag photo.image %>
+  <% end %>
+  <% @artist.songs.each do |song| %>
+<br>  <%=link_to song.name, song %><br>
+  <%= link_to 'Remove song', song, method: :delete, data: { confirm: "Are you sure?" } %><br>
 <% end %>
-<%= link_to "Back", root_path %> 
+<hr>
+<%= link_to 'Add a song', new_song_path %><br><br>
+<%= link_to "Back", root_path %>
