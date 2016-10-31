@@ -3,9 +3,9 @@
   <%= image_tag photo.image %>
   <% end %>
   <% @artist.songs.each do |song| %>
-<br>  <%=link_to song.name, song %><br>
+<br>  <%=song.name %><br>
   <%= link_to 'Remove song', song, method: :delete, data: { confirm: "Are you sure?" } %><br>
 <% end %>
 <hr>
-<%= link_to 'Add a song', new_song_path %><br><br>
+<%= link_to 'Add a song', new_song_path, id: "new_song", remote: true %><br><br>
 <%= link_to "Back", root_path %>

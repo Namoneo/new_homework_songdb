@@ -6,10 +6,10 @@ def index
 end
 
 def show
-  @songs = @artist.songs
-
   @song = Song.new
 end
+
+private
 
 def set_artist
   @artist = Artist.find(params[:id])
