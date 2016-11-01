@@ -7,5 +7,5 @@
   <%= link_to 'Remove song', song, method: :delete, data: { confirm: "Are you sure?" } %><br>
 <% end %>
 <hr>
-<%= link_to 'Add a song', new_song_path, id: "new_song", remote: true %><br><br>
+<%= render 'songs/form' %>
 <%= link_to "Back", root_path %>

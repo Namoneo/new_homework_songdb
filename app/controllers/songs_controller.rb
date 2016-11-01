@@ -15,7 +15,7 @@ def create
   @song = Song.new(song_params)
 
   if @song.save
-    redirect_to root_path, notice: "Song successfully added"
+    redirect_to request.referrer, notice: "Song successfully added"
   else
     render :new
   end

@@ -6,13 +6,17 @@ def index
 end
 
 def show
-  @song = Song.new
+  @song = Song.new(song_params)
 end
 
 private
 
 def set_artist
   @artist = Artist.find(params[:id])
+end
+
+def song_params
+  params.permit(:name, :artist_id)
 end
 
 end
