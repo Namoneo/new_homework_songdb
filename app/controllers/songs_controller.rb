@@ -1,12 +1,5 @@
 class SongsController < ApplicationController
 
-def index
-  @songs = Song.all
-end
-
-def show
-end
-
 def new
   @song = Song.new
 end
@@ -16,17 +9,6 @@ def create
 
   if @song.save
     redirect_to request.referrer, notice: "Song successfully added"
-  else
-    render :new
-  end
-end
-
-def edit
-end
-
-def update
-  if @song.update(song_params)
-    redirect_to edit_song_path(@song), notice: "Song successfully added"
   else
     render :new
   end

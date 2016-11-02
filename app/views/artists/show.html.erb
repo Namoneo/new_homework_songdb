@@ -1,11 +1,21 @@
-<h4><%= @artist.name %></h4>
+<div class="row">
+<div class="col-md-6 col-md-offset-3">
+<h1 class="page-header"><%= @artist.name %></h1>
 <% @artist.photos.each do |photo| %>
-  <%= image_tag photo.image %>
-  <% end %>
-  <% @artist.songs.each do |song| %>
-<br>  <%=song.name %><br>
-  <%= link_to 'Remove song', song, method: :delete, data: { confirm: "Are you sure?" } %><br>
+<%= image_tag photo.image %>
 <% end %>
-<hr>
+<table class="table table-striped" id="songList">
+<% @artist.songs.each do |song| %>
+<br><%=song.name %>
+<p class="delete">
+<%= link_to 'Remove song', song, method: :delete, data: { confirm: "Are you sure?" } %>
+</p>
+<% end %>
+</table>
 <%= render 'songs/form' %>
-<%= link_to "Back", root_path %>
+<br>
+<div class="footer">
+<%= link_to "Back", root_path, class: "btn btn-primary" %>
+</div>
+</div>
+</div>

@@ -1,18 +1,18 @@
 <%= form_for @song, remote: true do |f| %>
-    <% @song.errors.full_messages.each do |msg| %>
-        <p class="alert alert-danger"><%= msg %></p>
-    <% end %>
-
+<div class="form-song <%= @song.errors.any? ? 'has-error' : '' %>" id="form-title">
     <div class="form-group">
-      <label>Song name</label>
+      <label class="label-title">Song name</label>
       <%= f.text_field :name, placeholder: "Song title", class: "form-control" %>
     </div>
-
     <div class="form-group">
       <%= f.hidden_field :artist_id, :value => @artist.id, id: 'artist-id' %>
     </div>
-
     <div class="actions">
       <%= f.submit "Add", class: "btn btn-primary" %>
     </div>
+    <% if @song.errors.any? %>
+      <% @song.errors.full_messages.each do |message| %>
+        <span class="help-block"><%= message %></span>
+      <% end %>
+    <% end %>
 <% end %>
